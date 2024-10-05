@@ -1,0 +1,77 @@
+=================================
+File: example_kill.c
+
+Explanation: Gets an input integer from the user (`iter`), and then sends the SIGUSR1 signal to itself as many times as the next highest multiple of 10 to the user's input.
+
+Example Run: ./example_kill 69
+
+Example Output:
+
+Back in main
+The kill() function was called 7 times
+The signal catching function was called 7 times
+
+=================================
+File: example_pause.c
+
+Explanation: Uses the alarm function to set an alarm for a duration specified by the user. To do so, it uses a signal handler for the SIGALRM signal. After setting the alarm, it prints the timestamp before entering a pause state using the pause function. After the timer expires, it resumes execution, printing the timestamp once again before exiting.
+
+Example Run:  ./example_pause 10
+
+Example Output:
+
+The time before pause is Fri Dec 22 18:38:34 2023
+Signal catcher called for signal 14
+The time after pause is Fri Dec 22 81:38:44 2023
+
+=================================
+File: example_sleep.c
+
+Explanation: Runs an indefinite loop, printing "Going to sleep for a second..." every second. It can be interrupted by the user pressing Ctrl+C, in which case it prints "Caught signal %d, coming out..." before exiting.
+
+Example Run: ./example_sleep
+
+Example Output:
+
+Going to sleep for a second...
+Going to sleep for a second...
+^CCaught signal 2, coming out...
+
+=================================
+File: signal.c
+
+Explanation: Gets an integer (optional) and a command as inputs from the user. It then sets an alarm (default 10 seconds, adjusted to match user input if an integer was given) and creates a child process using fork to execute the specified command. If the child process does not complete within a specified time, the parent process sends a SIGKILL signal to terminate it.
+
+Example Run: ./signal -5 mkdir killjoy
+
+Example Output: 
+
+Executing: mkdir
+
+================================= 
+File: pipe_1.c
+ 
+Explanation: Creates a specified number of child processes (controlled by the user's input). Each child process writes "Hello from child num (pid=PID)" to a shared pipe, while the parent process reads from the pipe and prints the messages received from the children. This program uses an array named buf with a size of BUFSIZE elements to store messages that are written to and read from the pipe between parent and child processes.
+
+Example Run: ./pipe_1 3
+
+Example Output:
+
+Creating 3 children
+FATHER: I receiíed from children:
+
+Çello from child  1 (pid= 5759)
+Çello from child  2 (pid= 5760)
+Çello from child  3 (pid= 5761)
+
+
+================================= 
+File: pipe_2.c 
+Explanation: Creates a pipe, forks a child process and sends a message from the parent process. The child process reads the message and writes it to the standard output.
+
+Example Run: ./pipe_2
+
+Example Output: 
+
+message through pipe
+================================= 

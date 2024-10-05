@@ -1,0 +1,15 @@
+cd $HOME
+
+mkdir quiz-1 && cd $_
+
+mkdir my-files && cd $_
+
+mkdir folder{10376..10384}
+
+for i in {10376..10384}; do touch folder$i/file$i.txt;done
+
+for i in {10376..10384}; do shuf -er -n20 'banana' 'chair' 'tomato' > folder$i/file$i.txt; done
+
+reportpath="/home/${USER}/quiz-1/report.txt"
+
+for i in {10376..10384}; do echo "/home/${USER}/quiz-1/my-files/folder${i}/file${i}.txt" >> $reportpath; grep -o 'chair\|banana\|tomato' folder$i/file$i.txt | sort | uniq -c | tr -s [[:blank:]] >> $reportpath; echo "" >> $reportpath;done

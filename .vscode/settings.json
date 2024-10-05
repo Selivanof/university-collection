@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "/home/gseli/Documents/uni-collection/UniversityCollection/RealTime_Embedded_Systems",
+    "files.associations": {
+        "iosfwd": "cpp"
+    }
+}

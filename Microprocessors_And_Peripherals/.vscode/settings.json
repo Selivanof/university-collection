@@ -1,0 +1,9 @@
+{
+    // Add the following to ensure consistent formatting
+    "editor.tabSize": 4, // Use 4 spaces for a tab
+    "editor.insertSpaces": true, // Convert tabs to spaces
+    "editor.detectIndentation": false, // Use the above settings and not detect file-specific indentations
+    "editor.formatOnSave": true, // Automatically format files when saving
+    "editor.trimAutoWhitespace": true, // Remove trailing whitespace when editing
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, TabWidth: 4, ColumnLimit: 120, FixNamespaceComments: true}"
+}

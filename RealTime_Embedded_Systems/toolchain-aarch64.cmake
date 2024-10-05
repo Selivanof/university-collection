@@ -1,0 +1,20 @@
+# Specify the cross compiler
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+
+# Specify the cross compiler binaries
+set(CMAKE_C_COMPILER "$ENV{CROSS_PREFIX}gcc")
+set(CMAKE_CXX_COMPILER "$ENV{CROSS_PREFIX}g++")
+
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -march=armv8-a -mtune=cortex-a72")
+
+
+# Specify the sysroot
+set(CMAKE_FIND_ROOT_PATH "$ENV{SYSROOT}")
+
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+
+# Ensure static link with OpenSSL
+set(OPENSSL_USE_STATIC_LIBS TRUE)
