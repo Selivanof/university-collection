@@ -144,6 +144,11 @@ struct SimpleAverage {
     void addTrade(const finnhub::TradeData &trade);
 };
 
+/**
+ * @struct StaticAverage
+ * @brief A struct that represents the average for the price financial symbol at a specific point in time.
+ *
+ **/
 struct StaticAverage {
     const double sum;
     const double volume;
